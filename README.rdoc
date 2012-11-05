@@ -4,13 +4,14 @@
 
 Just now, you have to install the gems manually.
 
-$ git clone git://github.com/tengine/tengine.git
-$ cd tengine
-$ rake spec
-$ rake rebuild
-$ gem i tengine_support/pkg/tengine_support-1.1.0.alpha1.gem 
-$ gem i tengine_event/pkg/tengine_event-1.1.0.alpha1.gem 
-$ gem i tengine_core/pkg/tengine_core-1.1.0.alpha1.gem 
+
+    $ git clone git://github.com/tengine/tengine.git
+    $ cd tengine
+    $ rake spec
+    $ rake rebuild
+    $ gem i tengine_support/pkg/tengine_support-1.1.0.alpha1.gem 
+    $ gem i tengine_event/pkg/tengine_event-1.1.0.alpha1.gem 
+    $ gem i tengine_core/pkg/tengine_core-1.1.0.alpha1.gem 
 
 
 == Start
