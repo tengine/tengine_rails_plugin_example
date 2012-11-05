@@ -1,5 +1,5 @@
 class ProductLog
   include Mongoid::Document
+  include Mongoid::Timestamps::Created
   field :msg, type: String
-  field :created_at, type: Time
 end

@@ -1,0 +1,51 @@
+<%
+%w[pids tengined_status tengined_activations].each do |f|
+  path = File.expand_path("../../tmp/#{f}", __FILE__)
+  Dir.mkdir(path) unless Dir.exist?(path)
+end
+%>
+process:
+  daemon: false
+  pid_dir: <%= File.expand_path('../../tmp/pids', __FILE__) %>
+
+tengined:
+  activation_timeout: 300,
+  confirmation_threshold: info
+  load_path: <%= File.expand_path('../../app/tengine', __FILE__) %>
+  status_dir: <%= File.expand_path('../../tmp/tengined_status', __FILE__) %>
+  activation_dir: <%= File.expand_path('../../tmp/tengined_activations', __FILE__) %>
+
+heartbeat:
+  core:
+    interval: 30
+
+db:
+  sessions:
+    default:
+      database: tengine_rails_plugin_example_development
+      hosts:
+        - localhost:27017
+      options:
+        consistency: :eventual
+        max_retries: 128
+
+event_queue:
+  connection:
+    host: localhost
+    port: 5672
+  exchange:
+    name: tengine_event_exchange
+    type: direct
+  queue:
+    name: tengine_event_queue
+    durable: true
+
+# Local Variables:
+# mode: yaml
+# coding: utf-8-unix
+# indent-tabs-mode: nil
+# tab-width: 4
+# ruby-indent-level: 2
+# fill-column: 79
+# default-justification: full
+# End:
