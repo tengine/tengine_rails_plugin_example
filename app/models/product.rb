@@ -1,4 +1,4 @@
-require 'eventmachine'
+require 'tengine/batch'
 
 class Product
   include Mongoid::Document
@@ -6,16 +6,7 @@ class Product
   field :code, type: String
   field :price, type: Integer
 
-  after_create do |r|
-    EventMachine.run do
-      Tengine::Event.fire :'tengine.example.on_create', properties: { product: r.code }
-    end
-  end
-
-  after_update do |r|
-    EventMachine.run do
-      Tengine::Event.fire :'tengine.example.on_update', properties: { product: r.code }
-    end
-  end
+  after_create{|r| Tengine::Batch.fire("example1.on_create", product_code: r.code) }
+  after_update{|r| Tengine::Batch.fire("example1.on_update", product_code: r.code) }
 
 end

@@ -22,3 +22,12 @@ $ gem i tengine_core/pkg/tengine_core-1.1.0.alpha1.gem
 
 When you create a new Product record, the Product record fires an event for tengine.
 Then tengined kicks the event handlder for tengine.example.on_create in app/tenigned/product_handler.rb.
+
+
+
+== Test it
+
+1. open http://localhost:3000/products
+2. create new product
+3. open http://localhost:3000/product_logs and see a log created.
+4. open http://localhost:3000/tengine/batches and see a batch logs.
