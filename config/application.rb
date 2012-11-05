@@ -64,5 +64,13 @@ module TengineRailsPluginExample
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+
+    config.generators do |g|
+      g.orm             :mongoid
+      g.test_framework  :rspec
+      # g.template_engine :haml
+    end
+
   end
 end
