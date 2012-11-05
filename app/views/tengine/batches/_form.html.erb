@@ -1,0 +1,29 @@
+<%= form_for(@tengine_batch) do |f| %>
+  <% if @tengine_batch.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tengine_batch.errors.count, "error") %> prohibited this tengine_batch from being saved:</h2>
+
+      <ul>
+      <% @tengine_batch.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :status_cd %><br />
+    <%= f.number_field :status_cd %>
+  </div>
+  <div class="field">
+    <%= f.label :logs %><br />
+    <%= f.text_field :logs %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

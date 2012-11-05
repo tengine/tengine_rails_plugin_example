@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @tengine_batch.name %>
+</p>
+
+<p>
+  <b>Status cd:</b>
+  <%= @tengine_batch.status_cd %>
+</p>
+
+<p>
+  <b>Logs:</b>
+  <%= @tengine_batch.logs %>
+</p>
+
+
+<%= link_to 'Edit', edit_tengine_batch_path(@tengine_batch) %> |
+<%= link_to 'Back', tengine_batches_path %>

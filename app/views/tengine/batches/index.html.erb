@@ -1,0 +1,27 @@
+<h1>Listing tengine_batches</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Status cd</th>
+    <th>Logs</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @tengine_batches.each do |tengine_batch| %>
+  <tr>
+    <td><%= tengine_batch.name %></td>
+    <td><%= tengine_batch.status_cd %></td>
+    <td><%= tengine_batch.logs %></td>
+    <td><%= link_to 'Show', tengine_batch %></td>
+    <td><%= link_to 'Edit', edit_tengine_batch_path(tengine_batch) %></td>
+    <td><%= link_to 'Destroy', tengine_batch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Batch', new_tengine_batch_path %>

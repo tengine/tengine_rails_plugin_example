@@ -1,4 +1,6 @@
 TengineRailsPluginExample::Application.routes.draw do
+  namespace :tengine do resources :batches end
+
   resources :product_logs
 
   resources :products
